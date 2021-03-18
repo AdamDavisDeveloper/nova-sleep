@@ -1,6 +1,9 @@
 //Modules
-import { test } from "./dom.js";
+import { test, playBtn } from "./dom.js";
+import { time, currentTime } from "./time.js";
+
 console.log(test);
+console.log(currentTime);
 
 //Global Variables
 const fitbitAccessToken =
@@ -48,4 +51,12 @@ function change(userState) {
   }
 }
 
+function play() {
+  let playTime = time();
+  console.log(playTime);
+}
+
+playBtn.addEventListener("click", () => {
+  play();
+});
 // getHeartrate();
