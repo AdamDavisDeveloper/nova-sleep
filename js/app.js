@@ -1,6 +1,6 @@
 const fitbitAccessToken =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMkM1VEQiLCJzdWIiOiI4TU5MUUQiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJsb2MgcmhyIHJwcm8gcnNsZSIsImV4cCI6MTYxODM2OTYyOSwiaWF0IjoxNjE1Nzc3NjI5fQ.IbQCdHRiBUCcp2KIcqQKfGbX0XqGDfQdyqG_PTdnB5o";
-let seconds = 0;
+
 
 function getHeartrate() {
   fetch(
@@ -19,15 +19,6 @@ function getHeartrate() {
       );
     });
   setTimeout(getHeartrate, 30000);
-}
-
-function counter(seconds) {
-  while (seconds < 30) {
-    setInterval(() => {
-      console.log(seconds);
-      seconds++;
-    });
-  }
 }
 
 
