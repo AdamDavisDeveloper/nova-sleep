@@ -12,5 +12,3 @@ export function time() {
 
   return hour + ":" + minute;
 }
-
-export let currentTime = time();
