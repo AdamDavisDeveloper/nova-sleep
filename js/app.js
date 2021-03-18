@@ -1,3 +1,7 @@
+//Modules
+import { test } from "./dom.js";
+console.log(test);
+
 //Global Variables
 const fitbitAccessToken =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMkM1VEQiLCJzdWIiOiI4TU5MUUQiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJsb2MgcmhyIHJwcm8gcnNsZSIsImV4cCI6MTYxODM2OTYyOSwiaWF0IjoxNjE1Nzc3NjI5fQ.IbQCdHRiBUCcp2KIcqQKfGbX0XqGDfQdyqG_PTdnB5o";
@@ -25,11 +29,22 @@ function compare(json) {
   console.log("Daily Resting: " + restHr);
 
   if (currentHr < restHr) {
-    console.log("asleep");
+    change("asleep");
   } else if (currentHr > restHr) {
-    console.log("awake!");
+    change("awake");
   } else {
-    console.log("Error");
+    console.log(
+      "Error: unable to get current heart rate or resting heart rate"
+    );
+  }
+}
+
+function change(userState) {
+  switch (userState) {
+    case "asleep":
+      console.log("You are asleep now!");
+    case "awake":
+      console.log("You are awake now!");
   }
 }
 
