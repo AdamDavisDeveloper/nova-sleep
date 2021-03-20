@@ -1,10 +1,10 @@
 //Modules
-import { playBtn } from "./dom.js";
+import { playBtn, timeStart } from "./dom.js";
 import { time } from "./time.js";
 
 //Event Listeners
 playBtn.addEventListener("click", () => {
-  play();
+  play(true);
 });
 
 //Global Variables
@@ -48,14 +48,16 @@ function change(userState) {
   switch (userState) {
     case "asleep":
       console.log("You are asleep now!");
+      play(false);
     case "awake":
       console.log("You are awake now!");
   }
 }
 
-function play() {
+function play(bool) {
+  let isPlaying = bool;
   let playTime = time();
-  console.log(playTime);
+  timeStart.innerHTML = playTime;
 }
 
 // getHeartrate();

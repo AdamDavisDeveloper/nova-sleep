@@ -2,6 +2,10 @@ body {
     background: black;
 }
 
-h1 {
+h1, h3 {
     color: white;
+}
+
+.hidden {
+    opacity: 0;;
 }
