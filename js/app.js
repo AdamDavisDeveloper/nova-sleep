@@ -12,7 +12,7 @@ const fitbitAccessToken =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMkM1VEQiLCJzdWIiOiI4TU5MUUQiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJsb2MgcmhyIHJwcm8gcnNsZSIsImV4cCI6MTYxODM2OTYyOSwiaWF0IjoxNjE1Nzc3NjI5fQ.IbQCdHRiBUCcp2KIcqQKfGbX0XqGDfQdyqG_PTdnB5o";
 
 //Get most recent heart rate reported of user
-//Updated every 30sec (per the API constraints)
+//Updated every 30sec (per the Fitbit API constraints)
 function getHeartrate() {
   fetch(
     "https://api.fitbit.com/1/user/-/activities/heart/date/today/1d/1sec.json",
@@ -57,6 +57,7 @@ function change(userState) {
 function play(bool) {
   let isPlaying = bool;
   let playTime = time();
+  //UI display app start time
   timeStart.innerHTML = playTime;
 }
 
