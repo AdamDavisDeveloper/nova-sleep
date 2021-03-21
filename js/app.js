@@ -28,7 +28,9 @@ function getHeartrate() {
 
 function compare(json) {
   const seriesLength = json["activities-heart-intraday"].dataset.length - 1;
+  // Most current heart rate reported in the API
   let currentHr = json["activities-heart-intraday"].dataset[seriesLength].value;
+  // User's daily resting heart rate
   let restHr = json["activities-heart"][0].value.restingHeartRate;
   console.log("Current: " + currentHr);
   console.log("Daily Resting: " + restHr);
