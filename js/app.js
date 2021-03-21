@@ -1,5 +1,5 @@
 //Modules
-import { playBtn, timeStart } from "./dom.js";
+import { playBtn, timeStart, timeStop } from "./dom.js";
 import { time } from "./time.js";
 
 //Event Listeners
@@ -61,6 +61,9 @@ function play(bool) {
   let playTime = time();
   //UI display app start time
   timeStart.innerHTML = playTime;
+  if (!isPlaying) {
+    timeStop.innerHTML = playTime;
+  }
 }
 
 // getHeartrate();
