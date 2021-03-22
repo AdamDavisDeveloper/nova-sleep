@@ -51,8 +51,10 @@ function change(userState) {
     case "asleep":
       console.log("You are asleep now!");
       play(false);
+      break;
     case "awake":
       console.log("You are awake now!");
+      break;
   }
 }
 
