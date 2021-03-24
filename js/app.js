@@ -32,6 +32,7 @@ function compare(json) {
   let currentHr = json["activities-heart-intraday"].dataset[seriesLength].value;
   // User's daily resting heart rate
   let restHr = json["activities-heart"][0].value.restingHeartRate;
+
   console.log("Current: " + currentHr);
   console.log("Daily Resting: " + restHr);
 
