@@ -68,4 +68,5 @@ function play(bool) {
     timeStop.innerHTML = playTime;
   }
 }
+//
 // getHeartrate();
