@@ -62,10 +62,12 @@ function change(userState) {
 function play(bool) {
   let isPlaying = bool;
   let playTime = time();
+  if (isPlaying) {
+    getHeartrate();
+  }
   //UI display app start time
   timeStart.innerHTML = playTime;
   if (!isPlaying) {
     timeStop.innerHTML = playTime;
   }
 }
-// getHeartrate();
