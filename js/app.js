@@ -1,3 +1,9 @@
+/* ------IMPORTANT ------- 
+  Remember to sync Fitbit on phone
+  before running tests or you will
+  get undefined json response from API 
+  ------------------------*/
+
 //Modules
 import { playBtn, timeStart, timeStop } from "./dom.js";
 import { time } from "./time.js";
@@ -62,9 +68,10 @@ function change(userState) {
 function play(bool) {
   let isPlaying = bool;
   let playTime = time();
-
-  //start sleep timer fetch
-  getHeartrate();
+  if (isPlaying) {
+    // start sleep timer fetch
+    getHeartrate();
+  }
   //UI display app start time
   timeStart.innerHTML = playTime;
   if (!isPlaying) {
