@@ -15,3 +15,12 @@ export function time() {
     return hour + ":" + minute + " am";
   }
 }
+
+export function getUTCYesterday() {
+  let date = new Date();
+  let year = date.getUTCFullYear();
+  let month = date.getUTCMonth() + 1;
+  month = "0" + month;
+  let day = date.getUTCDate() - 1;
+  return year + "-" + month + "-" + day;
+}

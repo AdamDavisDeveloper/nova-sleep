@@ -1,6 +1,6 @@
 //Modules
 import { playBtn, timeStart, timeStop } from "./dom.js";
-import { time } from "./time.js";
+import { time, getUTCYesterday } from "./time.js";
 
 //Event Listeners
 playBtn.addEventListener("click", () => {
@@ -8,19 +8,23 @@ playBtn.addEventListener("click", () => {
 });
 
 //Global Variables
+let yesterday = getUTCYesterday();
+
 const fitbitAccessToken =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMkM1VEQiLCJzdWIiOiI4TU5MUUQiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJsb2MgcmhyIHJwcm8gcnNsZSIsImV4cCI6MTYxODM2OTYyOSwiaWF0IjoxNjE1Nzc3NjI5fQ.IbQCdHRiBUCcp2KIcqQKfGbX0XqGDfQdyqG_PTdnB5o";
 
+const heartRateIntraday =
+  "https://api.fitbit.com/1/user/-/activities/heart/date/today/1d/1sec.json";
+
+const heartRatePrevious = `https://api.fitbit.com/1/user/-/activities/heart/date/[${yesterday}]/1d/1min.json`;
+
 //Get most recent heart rate reported of user
 //Updated every 30sec (per the Fitbit API constraints)
-function getHeartrate() {
-  fetch(
-    "https://api.fitbit.com/1/user/-/activities/heart/date/today/1d/1sec.json",
-    {
-      method: "GET",
-      headers: { Authorization: "Bearer " + fitbitAccessToken },
-    }
-  )
+function getHeartrate(url) {
+  fetch(url, {
+    method: "GET",
+    headers: { Authorization: "Bearer " + fitbitAccessToken },
+  })
     .then((response) => response.json())
     .then(compare);
   setTimeout(getHeartrate, 30000);
@@ -35,6 +39,11 @@ function compare(json) {
 
   console.log("Current: " + currentHr);
   console.log("Daily Resting: " + restHr);
+
+  if (restHr == undefined) {
+    console.log("reached");
+    getHeartrate(heartRatePrevious);
+  }
 
   if (currentHr < restHr) {
     change("asleep");
@@ -63,7 +72,7 @@ function play(bool) {
   let isPlaying = bool;
   let playTime = time();
   if (isPlaying) {
-    getHeartrate();
+    getHeartrate(heartRateIntraday);
   }
   //UI display app start time
   timeStart.innerHTML = playTime;
