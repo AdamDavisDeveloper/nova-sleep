@@ -14,7 +14,10 @@
     <title>Nova Sleep</title>
   </head>
   <body>
-    <h1>Nova Sleep Timer</h1>
+    <nav>
+      <h1>Nova Sleep Timer</h1>
+    </nav>
+
     <div id="timer-view">
       <h3 class="none">Timer started: <span class="start-time"></span></h3>
       <h3 class="none">
@@ -22,10 +25,12 @@
       </h3>
       <button id="play">Play</button>
     </div>
+
     <div id="alarm-view hidden">
       <h3>Alarm Mode</h3>
       <div class="alarm-card"></div>
     </div>
+
     <div class="popup-card hidden">
       <h3>Notice</h3>
       <p>
@@ -37,6 +42,7 @@
         background of your mobile device.
       </p>
     </div>
+
     <script type="module" src="/js/time.js"></script>
     <script type="module" src="/js/dom.js"></script>
     <script type="module" src="/js/app.js"></script>
