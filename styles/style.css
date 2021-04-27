@@ -18,3 +18,7 @@ h3 {
 .hidden {
   opacity: 0;
 }
+
+.removed {
+  display: none;
+}
