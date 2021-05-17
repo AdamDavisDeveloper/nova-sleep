@@ -59,6 +59,7 @@ function change(userState) {
   }
 }
 
+//This needs refactoring (May 16)
 function play(bool) {
   let isPlaying = bool;
   let playTime = time();
