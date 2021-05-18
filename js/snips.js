@@ -1,4 +1,6 @@
 //New User Authentication redirect
+// This will be used once the app is ready to accept multiple users with
+// seperate accounts.
 let fitbitAccessToken;
 
 if (!window.location.hash) {
